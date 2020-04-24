@@ -12,11 +12,11 @@ Highcharts.setOptions({
     }
 });
 
-let chartId = document.getElementById("chart-container");
+let chartIdHobbies = document.getElementById("chart-container-popular-hobbies");
 
 // checks for the chart ID and displays a backup image if the browser can't find it
 setTimeout(function() {
-    if(chartId.innerHTML === "") {
+    if(chartIdHobbies.innerHTML === "") {
         // console.log('noId');
         let chartArea = document.getElementsByClassName("chart-area");
         for(var i = 0; i < chartArea.length; i++) {
@@ -30,7 +30,7 @@ setTimeout(function() {
 },500);
 
 function drawHighcharts() {
-    Highcharts.chart(chartId, {
+    Highcharts.chart(chartIdHobbies, {
         chart: {
             type: 'bar',
             styledMode: true,
@@ -43,7 +43,7 @@ function drawHighcharts() {
             text: null
         },
         data: {
-            googleSpreadsheetKey: '1YOKb5l2VM4aAB2r20N_1aT_1vEajYrP3U-U3A6lZbC0'
+            googleSpreadsheetKey: '1vlUykZ0LKqMOO9Jx5vmR-EwHY_lVJZhDwv8lj9FeKoY'
         },
         // for bar charts only
         plotOptions: {
@@ -100,7 +100,8 @@ function drawHighcharts() {
         },
         tooltip: {
             shadow: false,
-            padding: 10
+            padding: 10,
+            pointFormat: "{point.y:.0f}%"
         },
         responsive: {
             rules: [{
